@@ -62,6 +62,20 @@ module.exports = function(css, map, meta) {
           config = {}
         }
         const sassPlugins = [
+            require('postcss-import')({
+                resolve(importer){
+                    //如果@import的值没有文件后缀
+                    if (!/\.s[ca]ss$/.test(importer)) {
+                        importer = importer + '.scss';
+                    }
+                    const [prefix, ...rest] = importer.split('/');
+                    if (config.options && config.options.alias && config.options.alias[prefix]) {
+                        importer = [config.options.alias[prefix], ...rest].join('/');
+                    }
+                    //处理alias路径
+                    return importer;
+                }
+            }),
             require('./plugins/postcssRemoveComments'),
             require('./plugins/postCssTransformDarkenOrLighten'),
             require('./plugins/postCssWalkAtFunction'),
