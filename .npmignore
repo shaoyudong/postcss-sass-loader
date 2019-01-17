@@ -1,0 +1,16 @@
+# FILES
+
+.gitignore
+.npmignore
+.editorconfig
+
+yarn.lock
+yarn-error.log
+package-lock.json
+
+# DIRECTORIES
+
+.github
+
+test
+node_modules

@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "parser": {
+      "anyOf": [
+        { "type": "string" },
+        { "type": "object" },
+        { "instanceof": "Function" }
+      ]
+    },
+    "syntax": {
+      "anyOf": [
+        { "type": "string" },
+        { "type": "object" },
+        { "instanceof": "Function" }
+      ]
+    },
+    "stringifier": {
+      "anyOf": [
+        { "type": "string" },
+        { "type": "object" },
+        { "instanceof": "Function" }
+      ]
+    },
+    "plugins": {
+      "anyOf": [
+        { "type": "array" },
+        { "type": "object" },
+        { "instanceof": "Function" }
+      ]
+    },
+    "sourceMap": {
+      "type": [ "string", "boolean" ]
+    }
+  },
+  "additionalProperties": true
+}
