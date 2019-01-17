@@ -6,7 +6,6 @@ const validateOptions = require('schema-utils');
 const postcssrc = require('postcss-load-config');
 const SyntaxError = require('./Error');
 const Warning = require('./Warning.js');
-const { resolveStyleAlias } = require('./utils');
 
 module.exports = function(css, map, meta) {
     const options = Object.assign({}, getOptions(this));
@@ -63,16 +62,6 @@ module.exports = function(css, map, meta) {
           config = {}
         }
         const sassPlugins = [
-            require('postcss-import')({
-                resolve(importer, baseDir){
-                    //如果@import的值没有文件后缀
-                    if (!/\.s[ca]ss$/.test(importer)) {
-                        importer = importer + '.scss';
-                    }
-                    //处理alias路径
-                    return resolveStyleAlias(importer, baseDir, config);
-                }
-            }),
             require('./plugins/postcssRemoveComments'),
             require('./plugins/postCssTransformDarkenOrLighten'),
             require('./plugins/postCssWalkAtFunction'),
