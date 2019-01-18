@@ -81,6 +81,27 @@ module.exports = {
 }
 ```
 
+### `alias`
+
+**`webpack.config.js`**
+```js
+{
+  test: /\.s[ca]ss$/,
+  use: [
+    'style-loader',
+    'css-loader',
+    {
+      loader: 'postcss-sass-loader',
+      options: {
+        alias: {
+            "@test": "/home/test"
+        }
+      }
+    }
+  ]
+}
+```
+
 > ⚠️  webpack requires an identifier (`ident`) in `options` when `{Function}/require` is used (Complex Options). The `ident` can be freely named as long as it is unique. It's recommended to name it (`ident: 'postcss'`)
 
 <h2 align="center">Examples</h2>
