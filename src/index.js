@@ -72,7 +72,6 @@ module.exports = function(css, map, meta) {
                     if (config.options && config.options.alias && config.options.alias[prefix]) {
                         importer = [config.options.alias[prefix], ...rest].join('/');
                     }
-                    //处理alias路径
                     return importer;
                 }
             }),

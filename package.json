@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --config jest.config.js"
   },
-  "keywords": [],
+  "keywords": ["css", "sass", "postcss", "webpack", "webpack-loader"],
   "author": "",
   "license": "ISC",
   "dependencies": {
