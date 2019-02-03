@@ -75,12 +75,7 @@ module.exports = function(css, map, meta) {
                     return importer;
                 }
             }),
-            require('./plugins/postcssRemoveComments'),
-            require('./plugins/postCssTransformDarkenOrLighten'),
-            require('./plugins/postCssWalkAtFunction'),
-            require('postcss-nested-props'),   //属性嵌套
-            require('precss'),
-            require('postcss-automath')
+            require('@csstools/postcss-sass')
         ];
         let plugins = config.plugins || [];
         if (config.file) this.addDependency(config.file)
